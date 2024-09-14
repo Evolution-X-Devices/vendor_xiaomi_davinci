@@ -5,6 +5,12 @@
 soong_namespace {
 	imports: [
 		"vendor/xiaomi/sm6150-common",
+		"device/xiaomi/sm6150-common",
+		"hardware/qcom-caf/sm8150",
+		"hardware/qcom-caf/wlan",
+		"hardware/xiaomi",
+		"vendor/qcom/opensource/dataservices",
+		"vendor/qcom/opensource/display",
 	],
 }
 
@@ -17,10 +23,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm: {
 			srcs: ["proprietary/vendor/lib/btaudio_offload_if.so"],
+			shared_libs: ["libbase", "libcutils", "libfmq", "libhidlbase", "liblog", "libutils", "android.hardware.bluetooth.audio@2.0", "libbluetooth_audio_session", "libbluetooth_audio_session_qti", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "32",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -34,10 +40,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm: {
 			srcs: ["proprietary/vendor/lib/libacdb-fts.so"],
+			shared_libs: ["libcutils", "libutils", "liblog", "libaudcal", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "32",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -51,10 +57,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm: {
 			srcs: ["proprietary/vendor/lib/libacdbloader.so"],
+			shared_libs: ["libcutils", "libutils", "liblog", "libaudcal", "libtinyalsa", "libacdbrtac", "libadiertac", "libacdb-fts", "libion", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "32",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -68,10 +74,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm: {
 			srcs: ["proprietary/vendor/lib/libacdbrtac.so"],
+			shared_libs: ["libcutils", "libutils", "liblog", "libaudcal", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "32",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -85,10 +91,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm: {
 			srcs: ["proprietary/vendor/lib/libadiertac.so"],
+			shared_libs: ["libcutils", "libutils", "liblog", "libaudcal", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "32",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -102,10 +108,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm: {
 			srcs: ["proprietary/vendor/lib/libadm.so"],
+			shared_libs: ["liblog", "libcutils", "libtinyalsa", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "32",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -119,10 +125,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm: {
 			srcs: ["proprietary/vendor/lib/libaudcal.so"],
+			shared_libs: ["libutils", "liblog", "libdiag", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "32",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -136,27 +142,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm: {
 			srcs: ["proprietary/vendor/lib/libqtigef.so"],
+			shared_libs: ["liblog", "libcutils", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "32",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libsn100u_fw",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libsn100u_fw.so"],
-		},
-	},
-	compile_multilib: "32",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -170,10 +159,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/com.qti.sensor.imx582_davinci.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera",
 	prefer: true,
 	soc_specific: true,
@@ -188,10 +177,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/com.qti.sensor.ov8856_davinci.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera",
 	prefer: true,
 	soc_specific: true,
@@ -206,10 +195,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/com.qti.sensor.s5k3l6_davinci.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera",
 	prefer: true,
 	soc_specific: true,
@@ -224,10 +213,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/com.qti.sensor.s5k3t2_davinci.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera",
 	prefer: true,
 	soc_specific: true,
@@ -242,10 +231,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.almalence.node.sr.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "libcutils", "libutils", "libHalSuperSensorServer", "libSuperSensor", "libSuperSensorCPU", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -260,10 +249,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.altek.node.depurple.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libutils", "libcutils", "libxml2", "libalCFR", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -278,10 +267,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.altek.node.distortioncorrection.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libutils", "libcutils", "libmibokeh_712", "libalLDC", "libalhLDC", "libalAILDC", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -296,10 +285,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.arcsoft.node.bodyslim.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "libsync", "libarcsoft_bodyslim", "libutils", "libcutils", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -314,10 +303,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.arcsoft.node.capturebokeh.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "libcutils", "libarcsoft_portrait_lighting", "libarcsoft_portrait_lighting_c", "libmpbase", "libarcsoft_dualcam_refocus", "libarcsoft_beautyshot", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -332,10 +321,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.arcsoft.node.capturefusion.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "libcutils", "libmpbase", "libarcsoft_dualcam_image_optical_zoom", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -350,10 +339,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.arcsoft.node.deflicker.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libutils", "libcutils", "libmpbase", "libarcsoft_preview_deflicker", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -368,10 +357,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.arcsoft.node.distortioncorrection.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libutils", "libcutils", "libmpbase", "libarcsoft_distortion_correction", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -386,10 +375,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.arcsoft.node.hdr.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libutils", "libcutils", "libmpbase", "libarcsoft_high_dynamic_range", "libarcsoft_low_light_hdr", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -404,10 +393,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.arcsoft.node.hdrchecker.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libutils", "libcutils", "libmpbase", "libarcsoft_high_dynamic_range", "libarcsoft_low_light_hdr", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -422,10 +411,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.arcsoft.node.realtimebokeh.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "libcutils", "libmpbase", "libarcsoft_dualcam_refocus", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -440,10 +429,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.arcsoft.node.skinbeautifier.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "libsync", "libarcsoft_beautyshot", "libutils", "libcutils", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -458,10 +447,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.arcsoft.node.smooth_transition.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "libtriplecam_video_optical_zoom", "libarcsat", "libcutils", "libmpbase", "libz", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -476,10 +465,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.arcsoft.node.superlowlight.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libutils", "libcutils", "libmpbase", "libarcsoft_supernight", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -494,10 +483,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.mi.node.aiasd.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libutils", "libcutils", "libc++_shared", "libcamera_scene", "libmialgo_sd", "libarcsoft_high_dynamic_range", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -512,10 +501,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.camx.chiiqutils.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libcdsprpc", "libqdMetaData", "libsnsapi", "libqmi_common_so", "libqmi_cci", "libqmi_encdec", "libprotobuf-cpp-full-3.9.1-vendorcompat", "libhardware", "libcom.qti.chinodeutils", "libsync", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -530,10 +519,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.eisv2.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -548,10 +537,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.eisv3.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -566,10 +555,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.hvx.addconstant.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -584,10 +573,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.hvx.binning.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -602,10 +591,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.node.depth.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -620,10 +609,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.node.dummyrtb.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -638,10 +627,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.node.dummysat.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -656,10 +645,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.node.eisv2.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libcdsprpc", "libqdMetaData", "libsnsapi", "libqmi_common_so", "libqmi_cci", "libqmi_encdec", "libprotobuf-cpp-full-3.9.1-vendorcompat", "libhardware", "libcamera_metadata", "libcom.qti.chinodeutils", "libsync", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -674,10 +663,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.node.eisv3.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libcdsprpc", "libqdMetaData", "libsnsapi", "libqmi_common_so", "libqmi_cci", "libqmi_encdec", "libprotobuf-cpp-full-3.9.1-vendorcompat", "libhardware", "libcamera_metadata", "libcom.qti.chinodeutils", "libsync", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -692,10 +681,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.node.fcv.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -710,10 +699,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.node.gpu.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -728,10 +717,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.node.memcpy.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -746,10 +735,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.node.photosolid.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libutils", "libcutils", "libxml2", "lib_denoiser3", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -764,10 +753,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.node.remosaic.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "libremosaic_daemon", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -782,10 +771,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.node.stich.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -800,10 +789,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.node.swregistration.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -818,10 +807,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.node.watermark.so"],
+			shared_libs: ["libpiex_shim", "libcutils", "libutils", "libcamera_metadata", "libcom.qti.chinodeutils", "libjpeg", "libpng", "libz", "libpiex", "libexpat", "libdng_sdk", "libEGL", "libGLESv2", "libnativewindow", "libft2vendor", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -836,10 +825,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.node.xiaomigenderage.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libutils", "libcutils", "libxml2", "libFaceGrade", "libXMFD_AgeGender", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -854,10 +843,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.stats.aec.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -872,10 +861,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.stats.af.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -890,10 +879,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.stats.afd.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -908,10 +897,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.stats.asd.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -926,10 +915,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.stats.awb.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -944,10 +933,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.stats.awbwrapper.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -962,10 +951,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.stats.haf.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -980,10 +969,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.stats.hafoverride.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -998,10 +987,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.stats.localhistogram.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1016,10 +1005,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.stats.pdlib.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1034,10 +1023,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.stats.pdlibsony.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1052,10 +1041,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qti.stats.pdlibwrapper.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1070,10 +1059,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qtistatic.stats.aec.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1088,10 +1077,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qtistatic.stats.af.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1106,10 +1095,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qtistatic.stats.awb.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1124,10 +1113,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.qtistatic.stats.pdlib.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1142,10 +1131,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.vidhance.node.eis.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "libvidhance", "libutils", "libcutils", "libui", "libhidlbase", "libhidltransport", "android.frameworks.sensorservice@1.0", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1160,10 +1149,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.vidhance.stats.aec_dmbr.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libhidlbase", "libhidltransport", "android.frameworks.sensorservice@1.0", "libvidhance", "libutils", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1178,10 +1167,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.visidon.node.clearshot.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libutils", "libcutils", "libxml2", "libsync", "libVDClearShot", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1196,10 +1185,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.visidon.node.sr.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libutils", "libcutils", "libxml2", "libVDSuperPhotoAPI", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1214,10 +1203,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.xiaomi.node.mibokeh.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "libutils", "libcutils", "libarcsoft_portrait_lighting", "libarcsoft_portrait_lighting_c", "libmibokeh_712", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1232,10 +1221,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.xiaomi.node.mifragment.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "liblog", "libutils", "libcutils", "libmibokeh_712", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1250,10 +1239,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/com.xiaomi.node.misegment.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "libutils", "libcutils", "libmibokeh_712", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1268,10 +1257,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/libdepthmapwrapper.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1286,10 +1275,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/camera/components/libmmcamera_cac3.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libcdsprpc", "libqdMetaData", "libsnsapi", "libqmi_common_so", "libqmi_cci", "libqmi_encdec", "libprotobuf-cpp-full-3.9.1-vendorcompat", "libhardware", "libOpenCL", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "camera/components",
 	prefer: true,
 	soc_specific: true,
@@ -1304,10 +1293,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/hw/camera.qcom.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libcdsprpc", "libqdMetaData", "libsnsapi", "libqmi_common_so", "libqmi_cci", "libqmi_encdec", "libprotobuf-cpp-full-3.9.1-vendorcompat", "libhardware", "libcamera_metadata", "libcamxfdengine", "libcamxstatscore", "libsync", "libmegface", "libMegviiFacepp-0.5.2", "libz", "libdl", "libc", "libm", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "hw",
 	prefer: true,
 	soc_specific: true,
@@ -1322,6 +1311,7 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/hw/com.qti.chi.override.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libcamera_metadata", "libhardware", "libhidlbase", "libhidltransport", "libqdMetaData", "libsync", "libutils", "vendor.qti.hardware.vpp@1.1", "vendor.qti.hardware.vpp@1.2", "libmialgo_fs", "libmialgo_utils", "libion", "libmialgo_rfs", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
@@ -1340,10 +1330,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/hw/fingerprint.goodix_fod.sm6150.so"],
+			shared_libs: ["libc++", "libbase", "libhidlbase", "libvndksupport", "libhwbinder", "libhidltransport", "libbinder", "libutils", "libcutils", "liblog", "libhardware", "libgf_hal", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "hw",
 	prefer: true,
 	soc_specific: true,
@@ -1358,10 +1348,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/hw/vendor.xiaomi.hardware.motor@1.0-impl.so"],
+			shared_libs: ["libhidlbase", "libhidltransport", "libhardware", "libcutils", "libutils", "liblog", "vendor.xiaomi.hardware.motor@1.0", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	relative_install_path: "hw",
 	prefer: true,
 	soc_specific: true,
@@ -1376,10 +1366,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libFaceGrade.so"],
+			shared_libs: ["liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1393,10 +1383,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libHalSuperSensorServer.so"],
+			shared_libs: ["libSuperSensor", "libSuperSensorCPU", "liblog", "libm", "libdl", "libc", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1410,10 +1400,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libSuperSensor.so"],
+			shared_libs: ["liblog", "libm", "libc", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1427,10 +1417,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libSuperSensorCPU.so"],
+			shared_libs: ["liblog", "libm", "libdl", "libc", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1444,10 +1434,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libVDClearShot.so"],
+			shared_libs: ["liblog", "libm", "libdl", "libc", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1461,6 +1451,7 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libVDSuperPhotoAPI.so"],
+			shared_libs: ["liblog", "libcdsprpc", "libm", "libdl", "libc", ],
 		},
 	},
 	compile_multilib: "64",
@@ -1478,10 +1469,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libXMFD_AgeGender.so"],
+			shared_libs: ["liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1495,10 +1486,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/lib_denoiser3.so"],
+			shared_libs: ["libdl", "liblog", "libc", "libm", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1512,6 +1503,7 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libalAILDC.so"],
+			shared_libs: ["liblog", "libGLESv3", "libEGL", "libnativewindow", "libOpenCL", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
@@ -1529,10 +1521,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libalCFR.so"],
+			shared_libs: ["libOpenCL", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1546,6 +1538,7 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libalLDC.so"],
+			shared_libs: ["liblog", "libGLESv3", "libEGL", "libnativewindow", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
@@ -1563,6 +1556,7 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libalhLDC.so"],
+			shared_libs: ["libOpenCL", "liblog", "libGLESv3", "libEGL", "libnativewindow", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
@@ -1580,10 +1574,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsat.so"],
+			shared_libs: ["libcamera_metadata", "libcom.qti.chinodeutils", "libtriplecam_video_optical_zoom", "libcutils", "libmpbase", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1597,10 +1591,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsoft_beautyshot.so"],
+			shared_libs: ["libmpbase", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1614,10 +1608,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsoft_bodyslim.so"],
+			shared_libs: ["libmpbase", "libOpenCL", "liblog", "libEGL", "libGLESv3", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1631,10 +1625,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsoft_distortion_correction.so"],
+			shared_libs: ["libmpbase", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1648,10 +1642,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsoft_dualcam_image_optical_zoom.so"],
+			shared_libs: ["libmpbase", "libOpenCL", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1665,10 +1659,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsoft_dualcam_refocus.so"],
+			shared_libs: ["libarcsoft_dualcam_refocus_rear_t", "libarcsoft_dualcam_refocus_rear_w", "libarcsoft_dualcam_refocus_front", "libmpbase", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1682,6 +1676,7 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsoft_dualcam_refocus_front.so"],
+			shared_libs: ["libmpbase", "libcdsprpc", "libOpenCL", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
@@ -1699,6 +1694,7 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsoft_dualcam_refocus_rear_t.so"],
+			shared_libs: ["libmpbase", "libcdsprpc", "libOpenCL", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
@@ -1716,6 +1712,7 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsoft_dualcam_refocus_rear_w.so"],
+			shared_libs: ["libmpbase", "libcdsprpc", "libOpenCL", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
@@ -1733,10 +1730,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsoft_high_dynamic_range.so"],
+			shared_libs: ["libmpbase", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1750,10 +1747,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsoft_low_light_hdr.so"],
+			shared_libs: ["libmpbase", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1767,10 +1764,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsoft_portrait_lighting.so"],
+			shared_libs: ["libmpbase", "libarcsoft_portrait_lighting_c", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1784,10 +1781,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsoft_portrait_lighting_c.so"],
+			shared_libs: ["libOpenCL", "liblog", "libdl", "libc", "libm", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1801,10 +1798,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsoft_preview_deflicker.so"],
+			shared_libs: ["liblog", "libdl", "libc", "libm", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1818,10 +1815,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libarcsoft_supernight.so"],
+			shared_libs: ["libmpbase", "libOpenCL", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1835,10 +1832,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libc++_shared.so"],
+			shared_libs: ["libc", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1852,10 +1849,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libcamera_nn_stub.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libcdsprpc", "libqdMetaData", "libsnsapi", "libqmi_common_so", "libqmi_cci", "libqmi_encdec", "libprotobuf-cpp-full-3.9.1-vendorcompat", "libhardware", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1869,10 +1866,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libcamera_scene.so"],
+			shared_libs: ["libc++_shared", "liblog", "libm", "libc", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1886,10 +1883,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libcamxfdalgov8.so"],
+			shared_libs: ["libc++", "libdl", "libc", "libm", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1903,10 +1900,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libcamxfdengine.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libcamera_nn_stub", "libcdsprpc", "libcamxfdalgov8", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1920,10 +1917,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libcamxstatscore.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1937,10 +1934,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libcamxswprocessalgo.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1954,10 +1951,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libcamxtintlessalgo.so"],
+			shared_libs: ["libcutils", "liblog", "libsync", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1971,10 +1968,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libcom.qti.chinodeutils.so"],
+			shared_libs: ["libcamera_metadata", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -1988,10 +1985,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libft2vendor.so"],
+			shared_libs: ["libpng", "libz", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2005,10 +2002,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libgf_hal.so"],
+			shared_libs: ["libhidlbase", "libhwbinder", "libhidltransport", "libbinder", "libutils", "libcutils", "liblog", "libhardware", "libion", "libQSEEComAPI", "vendor.goodix.hardware.biometrics.fingerprint@2.1", "libc", "libm", "libdl", "libc++", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2022,10 +2019,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libmialgo_fs.so"],
+			shared_libs: ["liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2039,10 +2036,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libmialgo_rfs.so"],
+			shared_libs: ["liblog", "libmialgo_utils", "libion", "libm", "libdl", "libc", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2056,10 +2053,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libmialgo_sd.so"],
+			shared_libs: ["liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2073,10 +2070,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libmialgo_utils.so"],
+			shared_libs: ["liblog", "libm", "libdl", "libc", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2090,10 +2087,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libmibokeh_712.so"],
+			shared_libs: ["libOpenCL", "liblog", "libz", "libm", "libdl", "libc", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2107,10 +2104,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libmivendor_module_calibration.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2124,10 +2121,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libmivendor_module_hall.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2141,10 +2138,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libmivendor_module_motor.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2158,10 +2155,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libmpbase.so"],
+			shared_libs: ["libc", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2175,10 +2172,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/liboemcrypto.so"],
+			shared_libs: ["libutils", "liblog", "libQSEEComAPI", "libhidlbase", "libcpion", "libminkdescriptor", "libcutils", "libtrustedapploader", "libdisplayconfig.qti", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2192,10 +2189,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libremosaic_daemon.so"],
+			shared_libs: ["liblog", "libutils", "libcutils", "libbinder", "libion", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2209,10 +2206,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libremosaiclib.so"],
+			shared_libs: ["liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2226,10 +2223,27 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libsensorslog.so"],
+			shared_libs: ["liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libsn100u_fw",
+	owner: "xiaomi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libsn100u_fw.so"],
+			shared_libs: [ ],
+		},
+	},
+	compile_multilib: "64",
 	prefer: true,
 	soc_specific: true,
 }
@@ -2243,10 +2257,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libsns_fastRPC_util.so"],
+			shared_libs: ["liblog", "libc", "libutils", "libcutils", "libc++", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2260,10 +2274,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libsns_low_lat_stream_stub.so"],
+			shared_libs: ["libsns_fastRPC_util", "liblog", "libc", "libutils", "libcutils", "libc++", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2277,10 +2291,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libsnsapi.so"],
+			shared_libs: ["libprotobuf-cpp-lite-3.9.1-vendorcompat", "libcutils", "libutils", "libqmi_common_so", "libqmi_cci", "libqmi_encdec", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2294,10 +2308,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libsnsdiaglog.so"],
+			shared_libs: ["libprotobuf-cpp-lite-3.9.1-vendorcompat", "liblog", "libdiag", "libsensorslog", "libutils", "libcutils", "libssc", "libsnsapi", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2311,10 +2325,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libssc.so"],
+			shared_libs: ["libprotobuf-cpp-lite-3.9.1-vendorcompat", "liblog", "libsensorslog", "libcutils", "libutils", "libqmi_common_so", "libqmi_cci", "libqmi_encdec", "libsnsapi", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2328,10 +2342,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libthermalclient.so"],
+			shared_libs: ["libcutils", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2345,10 +2359,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libtriplecam_optical_zoom_control.so"],
+			shared_libs: ["libmpbase", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2362,10 +2376,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libtriplecam_video_optical_zoom.so"],
+			shared_libs: ["libmpbase", "libOpenCL", "liblog", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2379,10 +2393,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libvidhance.so"],
+			shared_libs: ["libGLESv3", "libEGL", "libGLESv2", "libdl", "libm", "liblog", "libc++", "libc", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2396,10 +2410,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/mi.motor.daemon.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libxml2", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2413,10 +2427,10 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/sensors.ssc.so"],
+			shared_libs: ["libprotobuf-cpp-lite-3.9.1-vendorcompat", "liblog", "libsnsapi", "libssc", "libsnsdiaglog", "libutils", "libcutils", "libsns_fastRPC_util", "libsensorslog", "libhardware", "libhidltransport", "libhidlbase", "android.hardware.sensors@1.0", "android.hardware.graphics.mapper@3.0", "android.hardware.graphics.mapper@2.0", "vendor.qti.hardware.display.mapper@3.0", "vendor.qti.hardware.display.mapper@2.0", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	prefer: true,
 	soc_specific: true,
 }
@@ -2444,6 +2458,15 @@ prebuilt_rfsa {
 	filename: "capi_v2_aptX_HD.so",
 	owner: "xiaomi",
 	src: "proprietary/vendor/lib/rfsa/adsp/capi_v2_aptX_HD.so",
+	relative_install_path: "adsp",
+	soc_specific: true,
+}
+
+prebuilt_rfsa {
+	name: "dirac_resource",
+	filename: "dirac_resource.dar",
+	owner: "xiaomi",
+	src: "proprietary/vendor/lib/rfsa/adsp/dirac_resource.dar",
 	relative_install_path: "adsp",
 	soc_specific: true,
 }
@@ -2637,16 +2660,43 @@ prebuilt_rfsa {
 	soc_specific: true,
 }
 
+prebuilt_rfsa {
+	name: "misound_karaoke_res",
+	filename: "misound_karaoke_res.bin",
+	owner: "xiaomi",
+	src: "proprietary/vendor/lib/rfsa/adsp/misound_karaoke_res.bin",
+	relative_install_path: "adsp",
+	soc_specific: true,
+}
+
+prebuilt_rfsa {
+	name: "misound_karaokemix_res",
+	filename: "misound_karaokemix_res.bin",
+	owner: "xiaomi",
+	src: "proprietary/vendor/lib/rfsa/adsp/misound_karaokemix_res.bin",
+	relative_install_path: "adsp",
+	soc_specific: true,
+}
+
+prebuilt_rfsa {
+	name: "misound_res",
+	filename: "misound_res.bin",
+	owner: "xiaomi",
+	src: "proprietary/vendor/lib/rfsa/adsp/misound_res.bin",
+	relative_install_path: "adsp",
+	soc_specific: true,
+}
+
 cc_prebuilt_binary {
 	name: "vendor.xiaomi.hardware.motor@1.0-service",
 	owner: "xiaomi",
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service"],
+			shared_libs: ["liblog", "libcutils", "libhidlbase", "libhardware", "libhidltransport", "libutils", "vendor.xiaomi.hardware.motor@1.0", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	strip: {
 		none: true,
 	},
@@ -2661,10 +2711,10 @@ cc_prebuilt_binary {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/bin/mi_thermald"],
+			shared_libs: ["libcutils", "liblog", "libcrypto", "libssl", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	strip: {
 		none: true,
 	},
@@ -2678,10 +2728,10 @@ cc_prebuilt_binary {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/bin/remosaic_daemon"],
+			shared_libs: ["liblog", "libutils", "libbinder", "libremosaic_daemon", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	strip: {
 		none: true,
 	},
@@ -2695,10 +2745,10 @@ cc_prebuilt_binary {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/bin/sensors.qti"],
+			shared_libs: ["libprotobuf-cpp-lite-3.9.1-vendorcompat", "liblog", "libdiag", "libssc", "libsensorslog", "libcutils", "libsnsapi", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	strip: {
 		none: true,
 	},
@@ -2712,10 +2762,10 @@ cc_prebuilt_binary {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/bin/thermal-engine"],
+			shared_libs: ["libcutils", "liblog", "libqmi_common_so", "libqmi_cci", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
-	check_elf_files: false,
 	strip: {
 		none: true,
 	},

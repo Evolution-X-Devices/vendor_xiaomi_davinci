@@ -118,10 +118,6 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/davinci/proprietary/vendor/firmware/ipa_fws.elf:$(TARGET_COPY_OUT_VENDOR)/firmware/ipa_fws.elf \
     vendor/xiaomi/davinci/proprietary/vendor/firmware/ipa_fws.mdt:$(TARGET_COPY_OUT_VENDOR)/firmware/ipa_fws.mdt \
     vendor/xiaomi/davinci/proprietary/vendor/firmware/tfa98xx.cnt:$(TARGET_COPY_OUT_VENDOR)/firmware/tfa98xx.cnt \
-    vendor/xiaomi/davinci/proprietary/vendor/lib/rfsa/adsp/dirac_resource.dar:$(TARGET_COPY_OUT_VENDOR)/lib/rfsa/adsp/dirac_resource.dar \
-    vendor/xiaomi/davinci/proprietary/vendor/lib/rfsa/adsp/misound_karaoke_res.bin:$(TARGET_COPY_OUT_VENDOR)/lib/rfsa/adsp/misound_karaoke_res.bin \
-    vendor/xiaomi/davinci/proprietary/vendor/lib/rfsa/adsp/misound_karaokemix_res.bin:$(TARGET_COPY_OUT_VENDOR)/lib/rfsa/adsp/misound_karaokemix_res.bin \
-    vendor/xiaomi/davinci/proprietary/vendor/lib/rfsa/adsp/misound_res.bin:$(TARGET_COPY_OUT_VENDOR)/lib/rfsa/adsp/misound_res.bin \
     vendor/xiaomi/davinci/proprietary/vendor/lib64/camera/com.qti.sensormodule.davinci_luxvisions_imx582.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/com.qti.sensormodule.davinci_luxvisions_imx582.bin \
     vendor/xiaomi/davinci/proprietary/vendor/lib64/camera/com.qti.sensormodule.davinci_luxvisions_ov8856.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/com.qti.sensormodule.davinci_luxvisions_ov8856.bin \
     vendor/xiaomi/davinci/proprietary/vendor/lib64/camera/com.qti.sensormodule.davinci_luxvisions_s5k3l6.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/com.qti.sensormodule.davinci_luxvisions_s5k3l6.bin \
@@ -155,7 +151,6 @@ PRODUCT_PACKAGES += \
     libadm \
     libaudcal \
     libqtigef \
-    libsn100u_fw \
     com.qti.sensor.imx582_davinci \
     com.qti.sensor.ov8856_davinci \
     com.qti.sensor.s5k3l6_davinci \
@@ -274,6 +269,7 @@ PRODUCT_PACKAGES += \
     libremosaic_daemon \
     libremosaiclib \
     libsensorslog \
+    libsn100u_fw \
     libsns_fastRPC_util \
     libsns_low_lat_stream_stub \
     libsnsapi \
@@ -288,6 +284,7 @@ PRODUCT_PACKAGES += \
     capi_v2_aptX_CLHDAD_Encoder \
     capi_v2_aptX_Classic \
     capi_v2_aptX_HD \
+    dirac_resource \
     libSuperSensor_skel \
     libVC1Dec \
     libVC1DecDsp_skel \
@@ -309,6 +306,9 @@ PRODUCT_PACKAGES += \
     libscveT2T_skel \
     libsns_device_mode_skel \
     libsns_low_lat_stream_skel \
+    misound_karaoke_res \
+    misound_karaokemix_res \
+    misound_res \
     vendor.xiaomi.hardware.motor@1.0-service \
     mi_thermald \
     remosaic_daemon \
